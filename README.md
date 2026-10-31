@@ -53,7 +53,7 @@ Features are divided into three priority levels based on their importance and im
 
 These are the essential features required for the initial working version of TaskMatrix.
 
-- **Authentication:** User registration, login, logout, and protected routes.
+- **Authentication:** User registration, login, logout
 - **Workspace Management:** Create workspaces, with the creator automatically assigned as the workspace owner.
 - **Team Membership:** Add or invite members and assign workspace roles such as Owner, Admin, and Member.
 - **Project Management:** Create, view, update, and archive projects within a workspace.
@@ -80,7 +80,7 @@ These features improve collaboration, usability, and overall user experience.
 
 These are additional features that can make the platform more powerful and scalable.
 
-- **Background Processing:** Use Redis and BullMQ to handle asynchronous tasks, such as notification delivery.
+- **Background Processing:** Use Redis  to handle asynchronous tasks, such as notification delivery.
 - **Deadline Reminders:** Schedule automated reminders for upcoming task deadlines.
 - **Project Analytics:** Display project progress, task completion statistics, and productivity summaries.
 - **Project-Level Chat:** Introduce a dedicated discussion channel for each project, if time permits.
@@ -90,3 +90,7 @@ These are additional features that can make the platform more powerful and scala
 TaskMatrix aims to provide teams with a simple, centralized, and efficient way to manage their projects and daily tasks.
 
 By combining project management, team collaboration, real-time communication, and a scalable backend architecture, the platform will serve as a practical solution for organizing and managing team workflows.
+
+
+**Figma Design:** 
+[View TaskMatrix UI/UX Designs](https://www.figma.com/design/p4ecp86rPLgz3gcVx6wtJZ/Untitled)
