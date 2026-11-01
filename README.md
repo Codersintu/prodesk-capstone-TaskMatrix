@@ -85,6 +85,13 @@ These are additional features that can make the platform more powerful and scala
 - **Project Analytics:** Display project progress, task completion statistics, and productivity summaries.
 - **Project-Level Chat:** Introduce a dedicated discussion channel for each project, if time permits.
 
+
+
+**DATABASE SCHEMA:**
+
+![TaskMatrix Entity Relationship Diagram](./taskmatrix-erd.png)
+
+
 ## 5. Project Vision
 
 TaskMatrix aims to provide teams with a simple, centralized, and efficient way to manage their projects and daily tasks.
@@ -94,3 +101,5 @@ By combining project management, team collaboration, real-time communication, an
 
 **Figma Design:** 
 [View TaskMatrix UI/UX Designs](https://www.figma.com/design/p4ecp86rPLgz3gcVx6wtJZ/Untitled)
+
+
