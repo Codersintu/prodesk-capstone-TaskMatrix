@@ -2,7 +2,12 @@ import z from "zod";
 
 export const taskSchema=z.object({
     projectId:z.string().uuid(),
-    assigneeId:z.string().uuid().nullable().optional(),
+    assigneeIds: z.array(z.string().uuid()).max(50)
+        .refine((ids) => new Set(ids).size === ids.length, {
+            message: "Assignee IDs must not contain duplicates",
+        })
+        .optional()
+        .default([]),
     title : z.string().trim().min(2).max(100),
     description: z.string().trim().nullable().optional(),
     priority:z.enum(["LOW", "MEDIUM","HIGH", "URGENT"]).optional(),

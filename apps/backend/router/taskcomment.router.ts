@@ -4,7 +4,7 @@ import { createtaskComment, deleteTaskComment, getTaskcomment, updateTaskComment
 
 const router = Router();
 
-router.get("/tasks/:taskId/comments", requireAuth, ValidatorTaskComment, getTaskcomment);
+router.get("/tasks/:taskId/comments", requireAuth, ValidatortaskId, getTaskcomment);
 router.post("/tasks/:taskId/comments", requireAuth, ValidatortaskId, ValidatorTaskComment, createtaskComment);
 router.put("/comments/:commentId", requireAuth, updateTaskComment);
 router.delete("/comments/:commentId",requireAuth, deleteTaskComment);

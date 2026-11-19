@@ -37,7 +37,10 @@ export const createProject: RequestHandler = async (req, res) => {
                 name,
                 description,
                 status,
-                deadline
+                deadline,
+                members: {
+                    create: { userId: createdById },
+                },
             }
         })
 

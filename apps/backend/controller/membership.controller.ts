@@ -154,7 +154,7 @@ export const acceptMembershipInvitation: RequestHandler = async (req, res) => {
   if (typeof userId !== "string") {
     res.status(401).json({ message: "Unauthorized" });
     return;
-  };
+  }
 
   try {
     const result = await prisma.membership.updateMany({

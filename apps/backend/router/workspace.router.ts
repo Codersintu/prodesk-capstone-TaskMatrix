@@ -6,4 +6,5 @@ const router = Router();
 
 router.post("/workspace", requireAuth, validateWorkspace, createWorkspace);
 router.get("/getworkspace", requireAuth, getWorkspaceByuserId);
+
 export default router;
