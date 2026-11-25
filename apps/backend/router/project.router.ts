@@ -16,7 +16,7 @@ import {
 const router = Router();
 
 router.post("/project", requireAuth, ProjectValidator, createProject);
-router.get("/getProject", requireAuth, getAllProjectByWorkspace);
+router.get("/:workspaceId/getProject", requireAuth, getAllProjectByWorkspace);
 router.post(
   "/projects/:projectId/members",
   requireAuth,

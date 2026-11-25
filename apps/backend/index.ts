@@ -1,3 +1,4 @@
+import "./config/loadEnv";
 import express from "express";
 import workspaceRouter from "./router/workspace.router";
 import projectRouter   from "./router/project.router";

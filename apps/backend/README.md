@@ -22,7 +22,8 @@ BACKEND_URL=http://localhost:8000
 ```
 
 Install workspace dependencies from the repository root with `bun install`, then
-start the API from this directory with `bun run index.ts`. The protected
+start the API with `bun run index.ts` from this directory. The backend loads
+`apps/backend/.env` explicitly, regardless of the shell's working directory. The protected
 workspace endpoint is `POST http://localhost:8000/api/workspace`.
 
 Example request body:

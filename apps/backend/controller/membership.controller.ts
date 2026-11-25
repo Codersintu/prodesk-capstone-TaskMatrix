@@ -117,6 +117,7 @@ export const membershipCreate: RequestHandler = async (req, res) => {
       data: {
         workspaceId,
         userId: invitee.id,
+        invitedById: requesterId,
         role: "MEMBER",
         status: "INVITED",
         joinedAt: null,
@@ -209,7 +210,7 @@ export const acceptMembershipInvitation: RequestHandler = async (req, res) => {
   }
 };
 
-export const getMyInvitations: RequestHandler = async (_req, res) => {
+export const getMyInvitations: RequestHandler = async (req, res) => {
   const userId = res.locals.userId;
 
   if (typeof userId !== "string") {
@@ -221,11 +222,20 @@ export const getMyInvitations: RequestHandler = async (_req, res) => {
     const invitations = await prisma.membership.findMany({
       where: {
         userId,
-        status: "INVITED",
+        OR: [
+          { status: "INVITED" },
+          {
+            status: "ACTIVE",
+            invitedById: { not: null },
+          },
+        ],
       },
       include: {
         workspace: {
           select: { id: true, name: true, description: true },
+        },
+        invitedBy: {
+          select: {id: true, name: true, email:true, image: true},
         },
       },
       orderBy: { createdAt: "desc" },
