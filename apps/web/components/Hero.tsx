@@ -24,7 +24,7 @@ export default function Hero(){
 
                 <div className="flex items-center justify-center mt-6">
                     {session ? (
-                        <button className="bg-linear-to-t from-[#201f5e]/95 via-[#121075]/95 to-[#030254] backdrop-blur-md border border-white/30 shadow-lg shadow-black/20 rounded-full py-3 px-8 cursor-pointer">Get Started</button>
+                        <Link href="/workspace" className="bg-linear-to-t from-[#201f5e]/95 via-[#121075]/95 to-[#030254] backdrop-blur-md border border-white/30 shadow-lg shadow-black/20 rounded-full py-3 px-8 cursor-pointer">Get Started</Link>
                     ) : (
                         <Link href="/signin">
                             <div className="bg-linear-to-t from-[#201f5e]/95 via-[#121075]/95 to-[#030254] backdrop-blur-md border border-white/30 shadow-lg shadow-black/20 rounded-full py-3 px-8 cursor-pointer">

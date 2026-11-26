@@ -1,16 +1,8 @@
 @import "tailwindcss";
+@source "../../../packages/ui/src";
 
-html,
-body,
-#root {
-  font-family: var(--font-outfit);
-  font-weight: 300;
-  margin: 0;
-}
-
-.font-serif {
-  font-family: 'Cormorant Garamond', serif;
-}
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+body {
+  background: #080808;
+  color: #ffffff;
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }

@@ -12,17 +12,14 @@ import { toast } from "react-toastify";
 export default function SignInPage() {
   const router = useRouter();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const methods=useForm<LoginUserInput>({
-    resolver:zodResolver(loginUserSchema)
+    resolver: zodResolver(loginUserSchema)
   })
-  const {register,handleSubmit,formState:{errors}}=methods;
+  
+  const {register, handleSubmit, formState:{errors, isSubmitting}}=methods;
 
-  const  onSubmitHandler:SubmitHandler<LoginUserInput>=async (values) =>{
-    setError("");
-    setIsSubmitting(true);
+  const  onSubmitHandler: SubmitHandler<LoginUserInput>=async (values) =>{
 
     try {
       if (mode === "signup") {
@@ -37,7 +34,6 @@ export default function SignInPage() {
           const message =
             result?.message ?? "Unable to create your account.";
           toast.error(message);
-          setError(message);
           return;
         }
 
@@ -59,11 +55,6 @@ export default function SignInPage() {
             : "Invalid email or password."
         );
 
-        setError( 
-          mode === "signup"
-            ? "Your account was created, but sign-in failed. Please sign in."
-            : "Invalid email or password.",
-        );
         return;
       }
 
@@ -74,9 +65,6 @@ export default function SignInPage() {
       router.refresh();
     } catch(error:any) {
       toast.error(error?.message || "Something went wrong. Please try again.");
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
     }
   }
 
@@ -144,11 +132,6 @@ export default function SignInPage() {
           </span>
         )}
           </label>
-          {error && (
-            <p role="alert" className="text-sm text-red-300">
-              {error}
-            </p>
-          )}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -168,7 +151,6 @@ export default function SignInPage() {
             type="button"
             onClick={() => {
               setMode(mode === "signin" ? "signup" : "signin");
-              setError("");
             }}
             className="font-medium text-violet-300 transition hover:text-violet-200"
           >
